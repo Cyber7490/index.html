@@ -1,0 +1,272 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww18200\viewh17200\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="es">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Plantillas de Contenido</title>\
+<style>\
+  * \{ box-sizing: border-box; margin: 0; padding: 0; \}\
+  body \{ font-family: Georgia, serif; background: #fafaf8; color: #1a1a1a; min-height: 100vh; \}\
+\
+  .header \{ background: #1a1a2e; color: #fff; padding: 2.5rem 2rem 2rem; text-align: center; \}\
+  .header .tag \{ font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #a78bfa; margin-bottom: 0.5rem; \}\
+  .header h1 \{ font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; \}\
+  .header p \{ color: #cbd5e1; font-size: 0.95rem; \}\
+\
+  .tabs \{ display: flex; justify-content: center; gap: 0.5rem; padding: 1.5rem 1rem 0; background: #fff; border-bottom: 1px solid #e5e7eb; \}\
+  .tab \{ padding: 0.6rem 1.4rem; border-radius: 9999px; border: 2px solid #e5e7eb; background: transparent; color: #6b7280; font-family: Georgia, serif; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; \}\
+  .tab.active \{ border-color: #1a1a2e; background: #1a1a2e; color: #fff; font-weight: 600; \}\
+\
+  .container \{ max-width: 960px; margin: 0 auto; padding: 2rem 1rem; \}\
+\
+  .grid \{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; \}\
+  .card \{ background: #fff; border: 1.5px solid #e5e7eb; border-radius: 16px; padding: 1.5rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.04); \}\
+  .card:hover \{ box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: #1a1a2e; transform: translateY(-2px); \}\
+  .card .emoji \{ font-size: 2rem; margin-bottom: 0.75rem; \}\
+  .card h3 \{ font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; \}\
+  .card .meta \{ color: #6b7280; font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem; \}\
+  .card .tags \{ display: flex; flex-wrap: wrap; gap: 0.3rem; \}\
+  .badge \{ font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 9999px; border: 1px solid; \}\
+  .card .cta-link \{ margin-top: 1rem; color: #6366f1; font-size: 0.82rem; font-weight: 600; \}\
+\
+  .back-btn \{ background: none; border: none; cursor: pointer; color: #6b7280; font-size: 0.9rem; padding: 0 0 1.5rem; font-family: Georgia, serif; display: block; \}\
+  .detail-header \{ display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; \}\
+  .detail-header .big-emoji \{ font-size: 2.5rem; \}\
+  .detail-header h2 \{ font-size: 1.6rem; font-weight: 700; \}\
+  .detail-header .sub \{ color: #6b7280; font-size: 0.85rem; \}\
+  .export-btn \{ margin-left: auto; padding: 0.55rem 1.1rem; background: #1a1a2e; color: #fff; border: none; border-radius: 9999px; cursor: pointer; font-size: 0.82rem; font-family: Georgia, serif; font-weight: 600; transition: background 0.2s; \}\
+  .export-btn.success \{ background: #22c55e; \}\
+\
+  .blocks \{ display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; \}\
+  .block \{ border-radius: 12px; padding: 1rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; border: 1.5px solid; \}\
+  .block-num \{ min-width: 24px; height: 24px; border-radius: 50%; color: #fff; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; flex-shrink: 0; \}\
+  .block-content \{ flex: 1; \}\
+  .block-label \{ display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; flex-wrap: wrap; \}\
+  .block-title \{ font-weight: 700; font-size: 0.9rem; \}\
+  .block-type-badge \{ font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 9999px; color: #fff; font-weight: 600; \}\
+  .block-hint \{ color: #374151; font-size: 0.875rem; line-height: 1.6; white-space: pre-line; \}\
+  .copy-btn \{ border-radius: 8px; padding: 0.35rem 0.65rem; cursor: pointer; font-size: 0.75rem; font-family: Georgia, serif; font-weight: 600; transition: all 0.2s; white-space: nowrap; flex-shrink: 0; \}\
+\
+  .tips-box \{ background: #fff; border: 1.5px solid #e5e7eb; border-radius: 12px; padding: 1.25rem 1.5rem; \}\
+  .tips-box h4 \{ font-size: 0.9rem; font-weight: 700; color: #374151; margin-bottom: 0.75rem; \}\
+  .tips-box ul \{ padding-left: 1.2rem; \}\
+  .tips-box li \{ color: #4b5563; font-size: 0.875rem; margin-bottom: 0.4rem; line-height: 1.5; \}\
+\
+  .hidden \{ display: none; \}\
+</style>\
+</head>\
+<body>\
+\
+<div class="header">\
+  <div class="tag">Kit de Contenido Educativo</div>\
+  <h1>Plantillas de Contenido</h1>\
+  <p>6 estructuras probadas para crear contenido que educa e inspira</p>\
+</div>\
+\
+<div class="tabs">\
+  <button class="tab active" onclick="switchTab('blog')">\uc0\u55357 \u56541  Blog / Art\'edculos</button>\
+  <button class="tab" onclick="switchTab('social')">\uc0\u55357 \u56561  Redes Sociales</button>\
+</div>\
+\
+<div class="container">\
+  <div id="cards-view">\
+    <div class="grid" id="cards-grid"></div>\
+  </div>\
+  <div id="detail-view" class="hidden"></div>\
+</div>\
+\
+<script>\
+const typeColors = \{\
+  title:   \{ bg: "#fef3c7", border: "#f59e0b", label: "T\'edtulo" \},\
+  hook:    \{ bg: "#fce7f3", border: "#ec4899", label: "Hook" \},\
+  section: \{ bg: "#eff6ff", border: "#3b82f6", label: "Secci\'f3n" \},\
+  cta:     \{ bg: "#dcfce7", border: "#22c55e", label: "CTA" \},\
+\};\
+\
+const templates = \{\
+  blog: [\
+    \{\
+      id: "b1", name: "Gu\'eda Definitiva", emoji: "\uc0\u55357 \u56538 ",\
+      structure: [\
+        \{ label: "T\'edtulo", hint: "La gu\'eda definitiva para [TEMA] en [A\'d1O]", type: "title" \},\
+        \{ label: "Intro \'97 El problema", hint: "\'bfTe ha pasado que [PROBLEMA COM\'daN]? No est\'e1s solo/a. En este art\'edculo vas a aprender [PROMESA CONCRETA].", type: "hook" \},\
+        \{ label: "Secci\'f3n 1: \'bfQu\'e9 es [TEMA]?", hint: "Define el concepto en t\'e9rminos simples. Usa una analog\'eda cotidiana.", type: "section" \},\
+        \{ label: "Secci\'f3n 2: Por qu\'e9 importa", hint: "3 razones con datos o ejemplos reales de por qu\'e9 tu lector debe prestar atenci\'f3n.", type: "section" \},\
+        \{ label: "Secci\'f3n 3: Paso a paso", hint: "Numera los pasos. S\'e9 espec\'edfico/a. Incluye capturas, ejemplos o mini-ejercicios.", type: "section" \},\
+        \{ label: "Secci\'f3n 4: Errores comunes", hint: "Lista 3\'965 errores que comete la mayor\'eda y c\'f3mo evitarlos.", type: "section" \},\
+        \{ label: "CTA / Cierre", hint: "Resume en 2 oraciones. Invita a comentar o compartir. Ofrece recurso gratuito opcional.", type: "cta" \},\
+      ],\
+      tips: ["Longitud ideal: 1,200\'962,500 palabras", "Incluye tabla de contenidos al inicio", "A\'f1ade meta-descripci\'f3n SEO de 155 caracteres"],\
+    \},\
+    \{\
+      id: "b2", name: "Listicle Educativo", emoji: "\uc0\u55357 \u56610 ",\
+      structure: [\
+        \{ label: "T\'edtulo", hint: "[N\'famero] [Cosas / Formas / Razones] para [RESULTADO DESEADO]", type: "title" \},\
+        \{ label: "Intro \'97 Contexto r\'e1pido", hint: "2\'963 oraciones que establezcan por qu\'e9 esta lista es relevante HOY.", type: "hook" \},\
+        \{ label: "Punto 1 \'97 [Nombre del punto]", hint: "Subt\'edtulo llamativo + 80\'96150 palabras de explicaci\'f3n + ejemplo o dato.", type: "section" \},\
+        \{ label: "Puntos 2 al N (repetir estructura)", hint: "Mismo formato: subt\'edtulo + explicaci\'f3n + ejemplo. Var\'eda el orden de mayor a menor impacto.", type: "section" \},\
+        \{ label: "Resumen visual o tabla", hint: "Opcional pero muy valioso: resume todos los puntos en una tabla comparativa.", type: "section" \},\
+        \{ label: "CTA", hint: "\'bfCu\'e1l de estos puntos vas a aplicar primero? Cu\'e9ntame en los comentarios.", type: "cta" \},\
+      ],\
+      tips: ["N\'fameros impares funcionan mejor (7, 9, 11)", "El punto m\'e1s impactante va primero o \'faltimo", "Im\'e1genes o iconos por cada punto aumentan el tiempo de lectura"],\
+    \},\
+    \{\
+      id: "b3", name: "Caso de Estudio", emoji: "\uc0\u55357 \u56620 ",\
+      structure: [\
+        \{ label: "T\'edtulo", hint: "C\'f3mo [PERSONA / EMPRESA] logr\'f3 [RESULTADO] con [M\'c9TODO] en [TIEMPO]", type: "title" \},\
+        \{ label: "El contexto / desaf\'edo", hint: "\'bfCu\'e1l era la situaci\'f3n inicial? S\'e9 espec\'edfico/a con los n\'fameros de partida.", type: "hook" \},\
+        \{ label: "La estrategia aplicada", hint: "Describe qu\'e9 se hizo, en qu\'e9 orden y por qu\'e9 se eligi\'f3 ese enfoque.", type: "section" \},\
+        \{ label: "Resultados con datos", hint: "Antes vs. despu\'e9s. Usa m\'e9tricas concretas: %, $, tiempo ahorrado, etc.", type: "section" \},\
+        \{ label: "Lecciones aprendidas", hint: "3 aprendizajes transferibles que tu lector puede aplicar en su contexto.", type: "section" \},\
+        \{ label: "CTA", hint: "\'bfQuieres aplicar esta estrategia? Descarga la plantilla / cont\'e1ctame / lee este otro art\'edculo.", type: "cta" \},\
+      ],\
+      tips: ["Los casos reales con datos espec\'edficos generan el mayor engagement", "Incluye citas textuales si es posible", "A\'f1ade gr\'e1ficas de evoluci\'f3n"],\
+    \},\
+  ],\
+  social: [\
+    \{\
+      id: "s1", name: "Post Educativo", emoji: "\uc0\u55357 \u56481 ",\
+      structure: [\
+        \{ label: "Hook (l\'ednea 1)", hint: "La mayor\'eda de las personas no sabe que [DATO SORPRENDENTE]. \uc0\u8595 ", type: "hook" \},\
+        \{ label: "El problema", hint: "Y eso les cuesta [CONSECUENCIA TANGIBLE].", type: "section" \},\
+        \{ label: "La soluci\'f3n (3 puntos)", hint: "Aqu\'ed los 3 pasos que cambiaron todo:\\n\uc0\u8594  Paso 1:\\n\u8594  Paso 2:\\n\u8594  Paso 3:", type: "section" \},\
+        \{ label: "Prueba / validaci\'f3n", hint: "Esto le funcion\'f3 a [EJEMPLO]. En [TIEMPO] logr\'f3 [RESULTADO].", type: "section" \},\
+        \{ label: "CTA", hint: "\'bfYa usabas esto? Comenta \uc0\u55357 \u56908  o guarda este post para despu\'e9s.", type: "cta" \},\
+      ],\
+      tips: ["M\'e1x. 300 palabras en LinkedIn, 150 en Instagram", "Usa espacios en blanco entre cada bloque", "Emojis con moderaci\'f3n (1\'962 por bloque)"],\
+    \},\
+    \{\
+      id: "s2", name: "Hilo / Carrusel", emoji: "\uc0\u55356 \u57248 ",\
+      structure: [\
+        \{ label: "Slide 1 \'97 Portada", hint: "[N\'daMERO] cosas que aprend\'ed sobre [TEMA] (y que desear\'eda haber sabido antes)", type: "title" \},\
+        \{ label: "Slide 2 \'97 El problema", hint: "Sin esto, [CONSECUENCIA NEGATIVA COM\'daN]. Con esto, [PROMESA].", type: "hook" \},\
+        \{ label: "Slides 3\'968 \'97 Puntos clave", hint: "1 idea por slide. T\'edtulo corto + 2\'963 oraciones de explicaci\'f3n + \'edcono o ilustraci\'f3n.", type: "section" \},\
+        \{ label: "Slide final \'97 CTA", hint: "Guarda este carrusel \uc0\u55357 \u56598  y s\'edgueme para m\'e1s contenido sobre [TEMA].", type: "cta" \},\
+      ],\
+      tips: ["8\'9612 slides es el rango ideal", "Tipograf\'eda grande y legible en m\'f3vil", "Paleta de 2\'963 colores consistente en todo el carrusel"],\
+    \},\
+    \{\
+      id: "s3", name: "Historia / Reflexi\'f3n", emoji: "\uc0\u9997 \u65039 ",\
+      structure: [\
+        \{ label: "Hook narrativo", hint: "Hace [TIEMPO], [YO / ALGUIEN] cometi\'f3 un error que cambi\'f3 todo.", type: "hook" \},\
+        \{ label: "El conflicto", hint: "El problema era [X]. Y las consecuencias fueron [Y].", type: "section" \},\
+        \{ label: "El giro / aprendizaje", hint: "Entonces descubr\'ed que [INSIGHT]. Y todo cambi\'f3 cuando [ACCI\'d3N].", type: "section" \},\
+        \{ label: "La lecci\'f3n universal", hint: "Si hay algo que esto me ense\'f1\'f3 es: [PRINCIPIO APLICABLE A TODOS].", type: "section" \},\
+        \{ label: "CTA", hint: "\'bfTe ha pasado algo similar? Me gustar\'eda leer tu historia en los comentarios.", type: "cta" \},\
+      ],\
+      tips: ["La vulnerabilidad aut\'e9ntica conecta m\'e1s que los logros", "Termina con una pregunta abierta", "Ideal para LinkedIn y Twitter/X"],\
+    \},\
+  ],\
+\};\
+\
+let activeTab = "blog";\
+\
+function switchTab(tab) \{\
+  activeTab = tab;\
+  document.querySelectorAll(".tab").forEach((t, i) => \{\
+    t.classList.toggle("active", (i === 0 && tab === "blog") || (i === 1 && tab === "social"));\
+  \});\
+  showCards();\
+\}\
+\
+function showCards() \{\
+  document.getElementById("cards-view").classList.remove("hidden");\
+  document.getElementById("detail-view").classList.add("hidden");\
+  renderCards();\
+\}\
+\
+function renderCards() \{\
+  const grid = document.getElementById("cards-grid");\
+  const list = templates[activeTab];\
+  grid.innerHTML = list.map(tpl => \{\
+    const badgesHtml = tpl.structure.slice(0, 4).map(s => \{\
+      const c = typeColors[s.type];\
+      return `<span class="badge" style="background:$\{c.bg\};border-color:$\{c.border\}">$\{c.label\}</span>`;\
+    \}).join("") + (tpl.structure.length > 4 ? `<span style="font-size:0.7rem;color:#9ca3af">+$\{tpl.structure.length - 4\}</span>` : "");\
+    return `\
+      <div class="card" onclick="showDetail('$\{tpl.id\}')">\
+        <div class="emoji">$\{tpl.emoji\}</div>\
+        <h3>$\{tpl.name\}</h3>\
+        <p class="meta">$\{tpl.structure.length\} bloques \'b7 $\{tpl.tips.length\} consejos</p>\
+        <div class="tags">$\{badgesHtml\}</div>\
+        <div class="cta-link">Ver estructura \uc0\u8594 </div>\
+      </div>`;\
+  \}).join("");\
+\}\
+\
+function showDetail(id) \{\
+  const tpl = [...templates.blog, ...templates.social].find(t => t.id === id);\
+  document.getElementById("cards-view").classList.add("hidden");\
+  const dv = document.getElementById("detail-view");\
+  dv.classList.remove("hidden");\
+\
+  const blocksHtml = tpl.structure.map((block, i) => \{\
+    const c = typeColors[block.type];\
+    return `\
+      <div class="block" style="background:$\{c.bg\};border-color:$\{c.border\}">\
+        <div class="block-num" style="background:$\{c.border\}">$\{i+1\}</div>\
+        <div class="block-content">\
+          <div class="block-label">\
+            <span class="block-title">$\{block.label\}</span>\
+            <span class="block-type-badge" style="background:$\{c.border\}">$\{c.label\}</span>\
+          </div>\
+          <p class="block-hint">$\{block.hint\}</p>\
+        </div>\
+        <button class="copy-btn" id="cb-$\{id\}-$\{i\}"\
+          style="border:1.5px solid $\{c.border\};color:$\{c.border\};background:transparent"\
+          onclick="copyBlock('$\{block.hint.replace(/'/g,"\\\\'")\}','$\{id\}-$\{i\}','$\{c.border\}')">Copiar</button>\
+      </div>`;\
+  \}).join("");\
+\
+  const tipsHtml = tpl.tips.map(t => `<li>$\{t\}</li>`).join("");\
+  const catLabel = tpl.id.startsWith("b") ? "Blog / Art\'edculo" : "Redes Sociales";\
+\
+  dv.innerHTML = `\
+    <button class="back-btn" onclick="showCards()">\uc0\u8592  Volver a plantillas</button>\
+    <div class="detail-header">\
+      <span class="big-emoji">$\{tpl.emoji\}</span>\
+      <div><h2>$\{tpl.name\}</h2><p class="sub">$\{catLabel\} \'b7 Educativo</p></div>\
+      <button class="export-btn" id="export-$\{id\}" onclick="exportTemplate('$\{id\}')">\uc0\u55357 \u56523  Copiar todo</button>\
+    </div>\
+    <div class="blocks">$\{blocksHtml\}</div>\
+    <div class="tips-box">\
+      <h4>\uc0\u55357 \u56481  Consejos para esta plantilla</h4>\
+      <ul>$\{tipsHtml\}</ul>\
+    </div>`;\
+\}\
+\
+function copyBlock(text, id, color) \{\
+  navigator.clipboard.writeText(text).then(() => \{\
+    const btn = document.getElementById("cb-" + id);\
+    if (!btn) return;\
+    const orig = btn.style.color;\
+    btn.textContent = "\uc0\u10003 ";\
+    btn.style.background = color;\
+    btn.style.color = "#fff";\
+    setTimeout(() => \{ btn.textContent = "Copiar"; btn.style.background = "transparent"; btn.style.color = orig; \}, 1500);\
+  \});\
+\}\
+\
+function exportTemplate(id) \{\
+  const tpl = [...templates.blog, ...templates.social].find(t => t.id === id);\
+  const text = `# $\{tpl.name\}\\n\\n` + tpl.structure.map(s => `## $\{s.label\}\\n$\{s.hint\}\\n`).join("\\n") + `\\n---\\nConsejos:\\n` + tpl.tips.map(t => `- $\{t\}`).join("\\n");\
+  navigator.clipboard.writeText(text).then(() => \{\
+    const btn = document.getElementById("export-" + id);\
+    if (!btn) return;\
+    btn.textContent = "\uc0\u10003  \'a1Copiado!";\
+    btn.classList.add("success");\
+    setTimeout(() => \{ btn.textContent = "\uc0\u55357 \u56523  Copiar todo"; btn.classList.remove("success"); \}, 1500);\
+  \});\
+\}\
+\
+renderCards();\
+</script>\
+</body>\
+</html>}
